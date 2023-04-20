@@ -10,7 +10,7 @@
 
 В проекте участвовали: 
 1) Приложение для генерация заданной цифры с помощью Conditional GAN - [Влад](https://github.com/zologinvlad)
-2) Приложение для детекция продуктов с помощью RCNNт из фреймворка YOLO v5 - [Лёша](https://github.com/AlexeyPratsevityi)
+2) Приложение для детекция продуктов с помощью RCNN из фреймворка YOLO v5 - [Лёша](https://github.com/AlexeyPratsevityi)
 3) Приложение для очистки документов от шумов с помощью автоэнкодера - [Лена](https://github.com/IvaElen)
 
 Спасибо за внимание! :)
