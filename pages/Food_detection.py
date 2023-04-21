@@ -39,7 +39,7 @@ def infer_image(img, size=None):
 
 @st.cache_resource
 def load_model(device):
-    model = torch.load('pages/models/yolov5s.pt')
+    model = torch.hub.load('ultralytics/yolov5', 'yolov5s', pretrained=False)
     model.load_state_dict(torch.load('pages/models/last.pt'))
     model.to(device)
     print("model to ", device)
