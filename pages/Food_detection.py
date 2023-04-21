@@ -9,7 +9,7 @@ import time
 st.set_page_config(layout="wide")
 
 cfg_model_path = 'models/last.pt'
-model = None
+model = 'models/yolov5s.pt'
 confidence = .25
 
 
@@ -39,10 +39,10 @@ def infer_image(img, size=None):
 
 @st.cache_resource
 def load_model(path, device):
-    model_ = torch.hub.load('ultralytics/yolov5', 'custom', path=path, force_reload=True)
-    model_.to(device)
+    model.load_state_dict(torch.load(path))
+    model.to(device)
     print("model to ", device)
-    return model_
+    return model
 
 
 # def get_user_model():
