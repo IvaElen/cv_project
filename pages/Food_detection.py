@@ -76,29 +76,29 @@ def main():
     model_src = "Use our demo model 5s"
 
     # check if model file is available
-    if not os.path.isfile(cfg_model_path):
-        st.warning("Model file not available!!! Please added to the model folder.", icon="⚠️")
-    else:
+#     if not os.path.isfile(cfg_model_path):
+#         st.warning("Model file not available!!! Please added to the model folder.", icon="⚠️")
+#     else:
 
-        device_option = 'cpu'
-        # load model
-        model = load_model(device_option)
+    device_option = 'cpu'
+    # load model
+    model = load_model(device_option)
 
-        # confidence slider
-        confidence = st.sidebar.slider('Confidence', min_value=0.1, max_value=1.0, value=.45)
+    # confidence slider
+    confidence = st.sidebar.slider('Confidence', min_value=0.1, max_value=1.0, value=.45)
 
 
-        st.sidebar.markdown("---")
+    st.sidebar.markdown("---")
 
-        # input options
-#         input_option = st.sidebar.radio("Select input type: ", ['image', 'video'])
+    # input options
+    #         input_option = st.sidebar.radio("Select input type: ", ['image', 'video'])
 
-        # input src option
-        data_src = 'Upload your own data'
-        input_option = 'image'
-        image_input(data_src)
-#         else:
-#             video_input(data_src)
+    # input src option
+    data_src = 'Upload your own data'
+    input_option = 'image'
+    image_input(data_src)
+    #         else:
+    #             video_input(data_src)
 
 
 if __name__ == "__main__":
