@@ -9,7 +9,7 @@ import time
 
 st.set_page_config(layout="wide")
 
-cfg_model_path = 'models/last.pt'
+cfg_model_path = 'pages/models/last.pt'
 model = None
 
 confidence = .25
@@ -19,7 +19,7 @@ def image_input(data_src):
     img_file = None
     img_bytes = st.sidebar.file_uploader("Upload an image", type=['png', 'jpeg', 'jpg'])
     if img_bytes:
-        img_file = "data/uploaded_data/upload." + img_bytes.name.split('.')[-1]
+        img_file = "pages/data/uploaded_data/upload." + img_bytes.name.split('.')[-1]
         Image.open(img_bytes).save(img_file)
 
     if img_file:
