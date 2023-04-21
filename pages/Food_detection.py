@@ -9,7 +9,7 @@ import time
 
 st.set_page_config(layout="wide")
 
-cfg_model_path = 'models/last.pt'
+cfg_model_path = 'pages/models/last.pt'
 model = None
 confidence = .25
 
@@ -18,7 +18,7 @@ def image_input(data_src):
     img_file = None
     img_bytes = st.sidebar.file_uploader("Upload an image", type=['png', 'jpeg', 'jpg'])
     if img_bytes:
-        img_file = "data/uploaded_data/upload." + img_bytes.name.split('.')[-1]
+        img_file = "pages/data/uploaded_data/upload." + img_bytes.name.split('.')[-1]
         Image.open(img_bytes).save(img_file)
 
     if img_file:
@@ -33,11 +33,11 @@ def image_input(data_src):
 def video_input(data_src):
     vid_file = None
     if data_src == 'Sample data':
-        vid_file = "data/sample_videos/sample.mp4"
+        vid_file = "pages/data/sample_videos/sample.mp4"
     else:
         vid_bytes = st.sidebar.file_uploader("Upload a video", type=['mp4', 'mpv', 'avi'])
         if vid_bytes:
-            vid_file = "data/uploaded_data/upload." + vid_bytes.name.split('.')[-1]
+            vid_file = "pages/data/uploaded_data/upload." + vid_bytes.name.split('.')[-1]
             with open(vid_file, 'wb') as out:
                 out.write(vid_bytes.read())
 
