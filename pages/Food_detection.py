@@ -3,13 +3,13 @@ import streamlit as st
 import wget
 from PIL import Image
 import torch
-# import cv2
+import cv2
 import os
 import time
 
 st.set_page_config(layout="wide")
 
-cfg_model_path = 'models/yolov5s.pt'
+cfg_model_path = 'pages/models/yolov5s.pt'
 model = None
 confidence = .25
 
