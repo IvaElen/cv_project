@@ -39,8 +39,8 @@ def infer_image(img, size=None):
 
 @st.cache_resource
 def load_model(device):
-    model = torch.load('models/yolov5s.pt')
-    model.load_state_dict(torch.load('models/last.pt'))
+    model = torch.load('pages/models/yolov5s.pt')
+    model.load_state_dict(torch.load('pages/models/last.pt'))
     model.to(device)
     print("model to ", device)
     return model
