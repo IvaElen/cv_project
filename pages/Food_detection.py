@@ -8,7 +8,7 @@ import time
 
 st.set_page_config(layout="wide")
 
-cfg_model_path = 'models/last.pt'
+cfg_model_path = 'pages/models/last.pt'
 model = None
 confidence = .25
 
