@@ -8,8 +8,8 @@ import time
 
 st.set_page_config(layout="wide")
 
-cfg_model_path = 'models/last.pt'
-model = 'models/yolov5s.pt'
+cfg_model_path = 'pages/models/last.pt'
+model = 'pages/models/yolov5s.pt'
 confidence = .25
 
 
