@@ -82,7 +82,7 @@ def main():
 
         device_option = 'cpu'
         # load model
-        model = load_model(cfg_model_path, device_option)
+        model = load_model(device_option)
 
         # confidence slider
         confidence = st.sidebar.slider('Confidence', min_value=0.1, max_value=1.0, value=.45)
