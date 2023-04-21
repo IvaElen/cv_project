@@ -8,8 +8,8 @@ import time
 
 st.set_page_config(layout="wide")
 
-cfg_model_path = 'pages/models/last.pt'
-model = 'pages/models/yolov5s.pt'
+# cfg_model_path = 'models/last.pt'
+
 confidence = .25
 
 
@@ -38,8 +38,9 @@ def infer_image(img, size=None):
 
 
 @st.cache_resource
-def load_model(path, device):
-    model.load_state_dict(torch.load(path))
+def load_model(device):
+    model = torch.load('models/yolov5s.pt')
+    model.load_state_dict(torch.load('models/last.pt'))
     model.to(device)
     print("model to ", device)
     return model
