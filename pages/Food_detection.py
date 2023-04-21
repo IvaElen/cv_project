@@ -40,29 +40,11 @@ def infer_image(img, size=None):
 @st.cache_resource
 def load_model(device):
     model = torch.hub.load('ultralytics/yolov5', 'yolov5s', pretrained=True)
-#     model.load_state_dict(torch.load('pages/models/last.pt'))
+    model.load_state_dict(torch.load('models/last.pt'))
     model.to(device)
     print("model to ", device)
     return model
 
-
-# def get_user_model():
-#     model_src = st.sidebar.radio("Model source", ["file upload", "url"])
-#     model_file = None
-#     if model_src == "file upload":
-#         model_bytes = st.sidebar.file_uploader("Upload a model file", type=['pt'])
-#         if model_bytes:
-#             model_file = "models/uploaded_" + model_bytes.name
-#             with open(model_file, 'wb') as out:
-#                 out.write(model_bytes.read())
-#     else:
-#         url = st.sidebar.text_input("model url")
-#         if url:
-#             model_file_ = download_model(url)
-#             if model_file_.split(".")[-1] == "pt":
-#                 model_file = model_file_
-
-#     return model_file
 
 def main():
     # global variables
@@ -75,30 +57,30 @@ def main():
     # upload model
     model_src = "Use our demo model 5s"
 
-    # check if model file is available
-#     if not os.path.isfile(cfg_model_path):
-#         st.warning("Model file not available!!! Please added to the model folder.", icon="⚠️")
-#     else:
+#     check if model file is available
+    if not os.path.isfile(cfg_model_path):
+        st.warning("Model file not available!!! Please added to the model folder.", icon="⚠️")
+    else:
 
-    device_option = 'cpu'
-    # load model
-    model = load_model(device_option)
+        device_option = 'cpu'
+        # load model
+        model = load_model(device_option)
 
-    # confidence slider
-    confidence = st.sidebar.slider('Confidence', min_value=0.1, max_value=1.0, value=.45)
+        # confidence slider
+        confidence = st.sidebar.slider('Confidence', min_value=0.1, max_value=1.0, value=.45)
 
 
-    st.sidebar.markdown("---")
+        st.sidebar.markdown("---")
 
-    # input options
-    #         input_option = st.sidebar.radio("Select input type: ", ['image', 'video'])
+        # input options
+        #         input_option = st.sidebar.radio("Select input type: ", ['image', 'video'])
 
-    # input src option
-    data_src = 'Upload your own data'
-    input_option = 'image'
-    image_input(data_src)
-    #         else:
-    #             video_input(data_src)
+        # input src option
+        data_src = 'Upload your own data'
+        input_option = 'image'
+        image_input(data_src)
+        #         else:
+        #             video_input(data_src)
 
 
 if __name__ == "__main__":
